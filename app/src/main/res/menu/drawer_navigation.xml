@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <group android:checkableBehavior="single"
+        android:id="@+id/beranda_id_group">
+        <item
+            android:id="@+id/action_home"
+            android:enabled="true"
+            android:icon="@drawable/ic_home"
+            android:title="@string/text_home"
+             />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/info_kesehatan_id_group">
+        <item
+            android:id="@+id/info_kesehatan_id"
+            android:title="Info Kesehatan"
+            ></item>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/info_gizi_id_group">
+        <item
+            android:id="@+id/info_gizi_id"
+            android:title="Info Gizi"
+            ></item>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/berat_id_group">
+        <item
+            android:id="@+id/berat_id"
+            android:title="Perbarui Berat Badan"
+            ></item>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/pinggang_id_group">
+        <item
+            android:id="@+id/pinggang_id"
+            android:title="Perbarui Ukuran Pinggang"
+            ></item>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/pertambahan_berat_id_group">
+        <item
+            android:id="@+id/pertambahan_berat_id"
+            android:title="Indeks Pertambahan Berat"
+            ></item>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/pengaturan_id_group">
+        <item
+            android:id="@+id/pengaturan_id"
+            android:title="Pengaturan"
+            ></item>
+    </group>
+</menu>
