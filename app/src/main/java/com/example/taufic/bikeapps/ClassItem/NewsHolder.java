@@ -10,13 +10,13 @@ public class NewsHolder {
     private String title;
     private String description;
     //private String image;
-    //private String web;
+    private String web;
 
     public NewsHolder(String title, String description, String image, String web) {
         this.title = title;
         this.description = description;
         //this.image = image;
-        //this.web = web;
+        this.web = web;
     }
 
 
@@ -43,13 +43,13 @@ public class NewsHolder {
 //    public void setImage(String image) {
 //        this.image = image;
 //    }
-//
-//    public String getWeb() {
-//        return web;
-//    }
-//
-//    public void setWeb(String web) {
-//        this.web = web;
-//    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
 
 }

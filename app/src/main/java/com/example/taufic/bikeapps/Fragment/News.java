@@ -1,5 +1,7 @@
 package com.example.taufic.bikeapps.Fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -122,6 +124,10 @@ public class News extends Fragment {
 //        ((TextView) news.findViewById(R.id.textView)).setText("News");
 
         return news;
+    }
+
+    public void linkToUrl(View view) {
+
     }
 }
 
