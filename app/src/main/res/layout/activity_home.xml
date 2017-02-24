@@ -31,19 +31,23 @@
                 android:text="@string/app_name"
                 android:textAppearance="?android:textAppearanceLarge"/>
             <ImageView
+                android:id="@+id/userImage"
                 android:layout_width="24sp"
                 android:layout_height="24sp"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/ic_launcher"/>
             <TextView
-                android:id="@+id/see_profile"
+                android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:text="see profile >"/>
+                android:ellipsize="none"
+                android:text="Description : >"
+                android:onClick="describe"/>
         </LinearLayout>
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -55,6 +59,7 @@
             android:src="@drawable/ic_add_circle_white_24dp"/>
 
     </RelativeLayout>
+    <!-- search -->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,14 +69,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-
+    <!-- List of event -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+        <ListView
+            android:id="@+id/list_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+        </ListView>
 
     </LinearLayout>
-
 
     <TextView
         android:id="@+id/textView"
