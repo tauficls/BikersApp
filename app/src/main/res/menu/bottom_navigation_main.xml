@@ -31,10 +31,9 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_menu"
+        android:id="@+id/action_compass"
         android:enabled="true"
-        android:icon="@drawable/ic_menu"
-        android:title="@string/text_menu"
+        android:icon="@drawable/ic_directions_white_24dp"
+        android:title="@string/text_direction"
         app:showAsAction="ifRoom" />
-
 </menu>
