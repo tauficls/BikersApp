@@ -7,11 +7,9 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.ResultReceiver;
-import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -56,6 +54,8 @@ public class FetchAddressIntentService extends IntentService {
         try {
             addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(),1);
 
+
+
         } catch (IOException ioException){
             Log.e(TAG, "service not available", ioException);
         } catch (IllegalArgumentException illegalArgumentException) {
@@ -67,14 +67,10 @@ public class FetchAddressIntentService extends IntentService {
             Log.e(TAG, "no address found");
             deliverResultToReceiver(Constants.FAILURE_RESULT, "no address found");
         } else {
-            Address address = addresses.get(0);
-            ArrayList<String> addressFragments = new ArrayList<>();
-
-            for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
-                addressFragments.add(address.getAddressLine(i));
-            }
+            String address = addresses.get(0).getLocality();
+            Log.w(TAG, "Address found");
             Log.i(TAG, "Address found");
-            deliverResultToReceiver(Constants.SUCCESS_RESULT, TextUtils.join(System.getProperty("line.seperator"), addressFragments));
+            deliverResultToReceiver(Constants.SUCCESS_RESULT, address);
         }
     }
 

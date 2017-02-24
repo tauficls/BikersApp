@@ -17,7 +17,6 @@ import com.example.taufic.bikeapps.Fragment.News;
 /**
  * Created by taufic on 2/20/2017.
  */
-
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager viewPager;

@@ -2,17 +2,15 @@ package com.example.taufic.bikeapps.Login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.taufic.bikeapps.Fragment.Home;
 import com.example.taufic.bikeapps.MainActivity;
 import com.example.taufic.bikeapps.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -73,26 +71,29 @@ public class login extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail", task.getException());
-                            Toast.makeText(login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            onSignInSuccess();
+                            finish();
                         }
 
                         // ...
                     }
                 });
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
-                        Log.d("coba", "sucess");
-                        onSignInSuccess();
-
-                        // onSignupFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
+//        new android.os.Handler().postDelayed(
+//                new Runnable() {
+//                    public void run() {
+//                        // On complete call either onSignupSuccess or onSignupFailed
+//                        // depending on success
+//                        Log.d("coba", "sucess");
+//                        onSignInSuccess();
+//
+//                        // onSignupFailed();
+//                        progressDialog.dismiss();
+//                    }
+//                }, 3000);
     }
 
     public void onSignInSuccess() {
@@ -103,7 +104,7 @@ public class login extends AppCompatActivity {
     public void onSignInFailed() {
         Toast.makeText(getBaseContext(), "login failed", Toast.LENGTH_LONG).show();
 
-        _signinButton.setEnabled(true);
+        //_signinButton.setEnabled(true);
     }
 
     public boolean validate() {
@@ -119,13 +120,6 @@ public class login extends AppCompatActivity {
             valid = false;
         } else {
             emailText.setError(null);
-        }
-
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            passwordText.setError("between 4 and 10 alphanumeric characters");
-            valid = false;
-        } else {
-            passwordText.setError(null);
         }
 
         return valid;
