@@ -6,6 +6,13 @@
     <string name="text_news">News</string>
     <string name="text_menu">Menu</string>
     <string name="search">Search</string>
+
+    <!-- String related to Location-->
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="no_location_detected">
+        No location detected. Please check the location is enabled on the device
+    </string>
     <string name="title_activity_sign_up">Sign up</string>
 
     <!-- Strings related to login -->

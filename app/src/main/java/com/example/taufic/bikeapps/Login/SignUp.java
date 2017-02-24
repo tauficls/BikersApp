@@ -14,10 +14,17 @@ import android.widget.Toast;
 
 import com.example.taufic.bikeapps.MainActivity;
 import com.example.taufic.bikeapps.R;
+import com.example.taufic.bikeapps.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static android.R.attr.description;
+import static android.R.attr.password;
 
 public class SignUp extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -28,6 +35,14 @@ public class SignUp extends AppCompatActivity {
     EditText nameText;
     EditText emailText;
     EditText passwordText;
+    EditText descriptionText;
+
+    private DatabaseReference mDatabase;
+    private FirebaseAuth firebaseAuth;
+    private User user;
+    private String email;
+    private String password;
+    private String description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +53,10 @@ public class SignUp extends AppCompatActivity {
         nameText = (EditText) findViewById(R.id.input_name);
         emailText = (EditText) findViewById(R.id.input_email);
         passwordText = (EditText) findViewById(R.id.input_password);
+        descriptionText = (EditText) findViewById(R.id.input_description);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
     }
 
     public void signUp(View view) {
@@ -57,9 +76,11 @@ public class SignUp extends AppCompatActivity {
         progressDialog.show();
 
         String name = nameText.getText().toString();
-        String email = emailText.getText().toString();
-        String password = passwordText.getText().toString();
+        email = emailText.getText().toString();
+        password = passwordText.getText().toString();
+        description = descriptionText.getText().toString();
 
+        user = new User(name, description, "aaa");
         /* sign up new users */
         final String TAG = "ini adalah cobaan";
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -67,7 +88,9 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+                        FirebaseUser userAuth = task.getResult().getUser();
 
+                        mDatabase.child("User").child(userAuth.getUid()).setValue(user);
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
@@ -107,12 +130,20 @@ public class SignUp extends AppCompatActivity {
         String name = nameText.getText().toString();
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
+        String description = descriptionText.getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
             nameText.setError("at least 3 characters");
             valid = false;
         } else {
             nameText.setError(null);
+        }
+
+        if (description.isEmpty()) {
+            descriptionText.setError("do not empty");
+            valid = false;
+        } else {
+            descriptionText.setError(null);
         }
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
