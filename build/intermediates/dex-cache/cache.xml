@@ -3,75 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.2.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.2.0_c5cc10d2f6ad403aa04c5f6e8b079c3e2a9e2609\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_a9689580f9afa53a1ecbf975ca6e00e8cb9a497c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_5e215cae6ec52d0a1ca4f9255645fd9749544825\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
         <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_10bf371e2891792a7cb9c8b9f4d150a177a57154\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_25a4a09043b0178f8e07a299a4205b0df78762c2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_081fd0e20c373708356619ce631533ef3fc905ba\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.1.0_e3fda2dc34a603f25e5a3c1e0dfc079c7ddf9c26\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_5113814e7e4f09766631405fbe1d87cb1e5195c9\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,15 +21,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.2.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.2.0_4c128c3e3b22de3370695c215c5d3ec6d7ed21d7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -102,20 +30,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.2.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="94fca868854457ede6df15c902938468c71d579e">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.2.0_d0c3c60dafe4cec7b37f96b5640c0f51a2db4387\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="e4673d714113ee0edde711eafd28f333bc89bc34">
+        sha1="ac48b4a732597fc49b429f9d7930b1495c438847">
         <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_493f5c2219f901d98628a82c2f3e8f4befbc0436\classes.dex" />
     </item>
     <item
@@ -135,15 +54,6 @@
         revision="24.0.1"
         sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
         <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_48314cfd17529bc8933fcd02766616dc9ef09cc0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="f8768cbd2af6879082474fd6245a33dcb452fa35">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8ca2adf7da84878196af12f3ffb08765b955e1ea\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -192,15 +102,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.1_6c4d5d579735fd4328b260dbed9cb927cb66f5ff\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -210,30 +111,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.2.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="d08bb32b88df3dbcbe1d498c3c57f020b8c521ec">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.2.0_908b13c74f8e5b436bba1143942cab6999e38d3d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
         <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_0ea942400da0760c6e2873bdbfad9f42ea73d447\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_f19cd4308214e1e4f89910ca2d94039062c03ed0\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -252,6 +135,123 @@
         revision="24.0.1"
         sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
         <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.2.0_f0f1a793af26a09d3022360887b9a9bda18da44a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.2.0_c5cc10d2f6ad403aa04c5f6e8b079c3e2a9e2609\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_a9689580f9afa53a1ecbf975ca6e00e8cb9a497c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_5e215cae6ec52d0a1ca4f9255645fd9749544825\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_25a4a09043b0178f8e07a299a4205b0df78762c2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_081fd0e20c373708356619ce631533ef3fc905ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.1.0_e3fda2dc34a603f25e5a3c1e0dfc079c7ddf9c26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_5113814e7e4f09766631405fbe1d87cb1e5195c9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.2.0_4c128c3e3b22de3370695c215c5d3ec6d7ed21d7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="94fca868854457ede6df15c902938468c71d579e">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.2.0_d0c3c60dafe4cec7b37f96b5640c0f51a2db4387\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="12a912155042186ad75a431f5e7e8946a59cdb41">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8ca2adf7da84878196af12f3ffb08765b955e1ea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.1_6c4d5d579735fd4328b260dbed9cb927cb66f5ff\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d08bb32b88df3dbcbe1d498c3c57f020b8c521ec">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.2.0_908b13c74f8e5b436bba1143942cab6999e38d3d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\BikeApps\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="C:\Users\user\Desktop\BikeApps\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_f19cd4308214e1e4f89910ca2d94039062c03ed0\classes.dex" />
     </item>
     <item
         is-multidex="true"

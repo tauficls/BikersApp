@@ -4,7 +4,7 @@
     <string name="text_chat">Chat</string>
     <string name="text_bike">Bike</string>
     <string name="text_news">News</string>
-    <string name="text_menu">Menu</string>
+    <string name="text_direction">Compass</string>
     <string name="search">Search</string>
 
     <!-- String related to Location-->
@@ -28,6 +28,9 @@
         completions."
     </string>
 
+    <!-- String related to compass -->
+    <string name="compass_dial">Compass Dial</string>
+    <string name="compass_hands">Compass Hands</string>
 
 
 </resources>

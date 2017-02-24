@@ -5,5 +5,9 @@ package com.example.taufic.bikeapps;
  */
 
 public class Community {
-    
+    String description;
+    String location;
+    String name;
+    String owner;
+    String members;
 }

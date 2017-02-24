@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.example.taufic.bikeapps.Adapter.TabPagerAdapter;
 import com.example.taufic.bikeapps.Fragment.Bike;
 import com.example.taufic.bikeapps.Fragment.Chat;
+import com.example.taufic.bikeapps.Fragment.CompassFragment;
 import com.example.taufic.bikeapps.Fragment.Home;
 import com.example.taufic.bikeapps.Fragment.News;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         final Chat chat = new Chat();
         final Bike bike = new Bike();
         final News news = new News();
+        final CompassFragment compassFragment = new CompassFragment();
 
         /* ViewPager Navigation Initiation*/
         bottomNavigationView = (BottomNavigationView) findViewById(
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         TabAdapter.addFragments(chat);
         TabAdapter.addFragments(bike);
         TabAdapter.addFragments(news);
+        TabAdapter.addFragments(compassFragment);
         viewPager.setAdapter(TabAdapter);
 
         /* Setting bottomNavigationView with ViewPager */
@@ -71,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case R.id.action_news:
                                 viewPager.setCurrentItem(3);
+                                break;
+                            case R.id.action_compass:
+                                viewPager.setCurrentItem(4);
                                 break;
                         }
                         return false;
