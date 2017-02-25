@@ -1,7 +1,9 @@
 package com.example.taufic.bikeapps.Login;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -30,12 +32,21 @@ public class login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPref2 = getPreferences(Context.MODE_PRIVATE);
+        String UID = sharedPref2.getString("UID", "null");
+        Log.d("UID KUDA ", UID);
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
-        _signinButton = (AppCompatButton) findViewById(R.id.btn_signIn);
-        emailText = (EditText) findViewById(R.id.input_email);
-        passwordText = (EditText) findViewById(R.id.input_password);
+        if (UID == "null") {
+            setContentView(R.layout.activity_login);
+            mAuth = FirebaseAuth.getInstance();
+            _signinButton = (AppCompatButton) findViewById(R.id.btn_signIn);
+            emailText = (EditText) findViewById(R.id.input_email);
+            passwordText = (EditText) findViewById(R.id.input_password);
+        }
+        else {
+            onSignInSuccess();
+        }
     }
 
     public void signIn(View view) {
@@ -66,34 +77,21 @@ public class login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail", task.getException());
                             Toast.makeText(login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
                         else {
+                            SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("UID", FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                            editor.commit();
                             onSignInSuccess();
                             finish();
                         }
-
-                        // ...
                     }
                 });
-
-//        new android.os.Handler().postDelayed(
-//                new Runnable() {
-//                    public void run() {
-//                        // On complete call either onSignupSuccess or onSignupFailed
-//                        // depending on success
-//                        Log.d("coba", "sucess");
-//                        onSignInSuccess();
-//
-//                        // onSignupFailed();
-//                        progressDialog.dismiss();
-//                    }
-//                }, 3000);
     }
 
     public void onSignInSuccess() {
@@ -103,13 +101,10 @@ public class login extends AppCompatActivity {
 
     public void onSignInFailed() {
         Toast.makeText(getBaseContext(), "login failed", Toast.LENGTH_LONG).show();
-
-        //_signinButton.setEnabled(true);
     }
 
     public boolean validate() {
         boolean valid = true;
-
 
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();

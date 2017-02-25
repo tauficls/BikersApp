@@ -43,8 +43,15 @@
                 android:gravity="center_vertical"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:ellipsize="none"
-                android:text="Description : >"
-                android:onClick="describe"/>
+                android:text="Description : >"/>
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:ellipsize="none"
+                android:text="location : >"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -89,4 +96,5 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textSize="50sp"/>
+
 </LinearLayout>
