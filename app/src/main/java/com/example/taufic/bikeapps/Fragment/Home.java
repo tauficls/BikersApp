@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.taufic.bikeapps.R;
 import com.example.taufic.bikeapps.User;
+import com.example.taufic.bikeapps.UserDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +27,7 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
         //UID
         String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        UserDetails.UID = UID;
         Log.d("uid user adalah : ", UID);
 
         //Database
@@ -39,6 +41,8 @@ public class Home extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
+                UserDetails.username = user.getUsername();
+                UserDetails.Community = "tes_1";
                 Log.d("Biji KUDA", user.getUsername());
             }
 
