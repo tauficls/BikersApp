@@ -53,9 +53,6 @@ public class FetchAddressIntentService extends IntentService {
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         try {
             addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(),1);
-
-
-
         } catch (IOException ioException){
             Log.e(TAG, "service not available", ioException);
         } catch (IllegalArgumentException illegalArgumentException) {
@@ -69,7 +66,6 @@ public class FetchAddressIntentService extends IntentService {
         } else {
             String address = addresses.get(0).getLocality();
             Log.w(TAG, "Address found");
-            Log.i(TAG, "Address found");
             deliverResultToReceiver(Constants.SUCCESS_RESULT, address);
         }
     }
