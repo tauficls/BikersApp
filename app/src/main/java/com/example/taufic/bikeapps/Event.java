@@ -11,6 +11,14 @@ public class Event {
     String description;
     String date;
 
+    public Event() {
+        communityId = "";
+        name = "";
+        location= "";
+        description= "";
+        date= "";
+    }
+
     public Event(String name, String communityId, String location, String description, String date) {
         this.name = name;
         this.communityId = communityId;

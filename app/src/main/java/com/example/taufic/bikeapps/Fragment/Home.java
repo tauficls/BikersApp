@@ -13,10 +13,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.taufic.bikeapps.Adapter.ListCommunityAdapter;
 import com.example.taufic.bikeapps.Adapter.ListEventAdapter;
 import com.example.taufic.bikeapps.AddCommunity;
 import com.example.taufic.bikeapps.Community;
-import com.example.taufic.bikeapps.MainActivity;
+import com.example.taufic.bikeapps.Event;
 import com.example.taufic.bikeapps.R;
 import com.example.taufic.bikeapps.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,11 +36,14 @@ public class Home extends Fragment  {
 
     private User user;
     private ArrayList<Community> listCommunity;
+    private ArrayList<Event> listEvent;
     private ListView listevent;
+    private ListView list_Community;
     private View home;
 
     public FirebaseDatabase database;
     public DatabaseReference ref2;
+    public DatabaseReference ref3;
 
     private boolean mDescribe;
 
@@ -87,12 +91,38 @@ public class Home extends Fragment  {
 
         //List of Community
         listCommunity = new ArrayList<Community>();
+        listEvent = new ArrayList<Event>();
 
+        ref3 = FirebaseDatabase.getInstance().getReference("Event");
+        ImageView btn = (ImageView) home.findViewById(R.id.addcommunity);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AddCommunity.class));
+            }
+        });
         ((TextView) home.findViewById(R.id.textView)).setText("Home");
         username = (TextView) home.findViewById(R.id.username);
         description = (TextView) home.findViewById(R.id.description);
 
         listevent = (ListView) home.findViewById(R.id.list_event);
+        list_Community = (ListView) home.findViewById(R.id.list_community);
+
+        ref3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    listEvent.add(childSnapshot.getValue(Event.class));
+                }
+                ListCommunityAdapter listCommunityAdapter = new ListCommunityAdapter(getContext(), R.layout.listview_community, listEvent);
+                list_Community.setAdapter(listCommunityAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -166,7 +196,7 @@ public class Home extends Fragment  {
 
     }
 
-    public void addCommunity(View view) {
-        startActivity(new Intent(getActivity(), MainActivity.class));
+    public void addCommuni(View view) {
+
     }
 }
