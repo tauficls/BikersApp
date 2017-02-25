@@ -76,7 +76,7 @@ public class SignUp extends AppCompatActivity {
         password = passwordText.getText().toString();
         description = descriptionText.getText().toString();
 
-        user = new User(name, description, "aaa");
+        user = new User(name, description, "aaa", null);
         /* sign up new users */
         final String TAG = "ini adalah cobaan";
         mAuth.createUserWithEmailAndPassword(email, password)

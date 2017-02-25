@@ -34,7 +34,7 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sharedPref2 = getPreferences(Context.MODE_PRIVATE);
         String UID = sharedPref2.getString("UID", "null");
-        Log.d("UID KUDA ", UID);
+        Log.d("UID ", UID);
 
         super.onCreate(savedInstanceState);
         if (UID == "null") {

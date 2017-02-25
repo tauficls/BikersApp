@@ -2,9 +2,10 @@ package com.example.taufic.bikeapps;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+
+import com.example.taufic.bikeapps.Location.Geolocation;
 
 public class SplashScreen extends Activity {
 
@@ -19,13 +20,13 @@ public class SplashScreen extends Activity {
 
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                Intent i = new Intent(SplashScreen.this, Geolocation.class);
                 startActivity(i);
 
                 // close this activity
                 finish();
             }
-        }, 5*1000); // wait for 5 seconds
+        }, 1*1000); // wait for 5 seconds
     }
 
     @Override
