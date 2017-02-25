@@ -50,7 +50,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Location.Geolocation"></activity>
+        <activity android:name=".Location.Geolocation">
+
+        </activity>
         <activity android:name=".Sensor.CompassActivity">
 
         </activity>

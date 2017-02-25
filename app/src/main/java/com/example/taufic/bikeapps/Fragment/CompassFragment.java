@@ -23,9 +23,7 @@ import com.example.taufic.bikeapps.R;
 
 public class CompassFragment extends Fragment implements SensorEventListener {
     private CompassFragment compassFragment;
-    public CompassFragment() {
 
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,11 +47,21 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     // compass arrow to rotate
     public ImageView arrowView = null;
 
+    public CompassFragment(){
+
+    }
+
     public CompassFragment(Context context) {
+        Log.d("Compass","MAsuk Context");
         sensorManager = (SensorManager) context
                 .getSystemService(Context.SENSOR_SERVICE);
         gsensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         msensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+
+        sensorManager.registerListener(this, gsensor,
+                SensorManager.SENSOR_DELAY_GAME);
+        sensorManager.registerListener(this, msensor,
+                SensorManager.SENSOR_DELAY_GAME);
     }
 
     public void start() {

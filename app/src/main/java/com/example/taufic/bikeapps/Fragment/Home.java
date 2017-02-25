@@ -85,9 +85,9 @@ public class Home extends Fragment {
 
         mDescribe = false;
 
-        ((TextView) username.findViewById(R.id.username)).setText(user.getUsername());
+//        ((TextView) username.findViewById(R.id.username)).setText(UserDetails.username);
 //        ((ImageView) userImage.findViewById(R.id.userImage));
-        ((TextView) description.findViewById(R.id.description)).setText(user.getDescription());
+//        ((TextView) description.findViewById(R.id.description)).setText(user.getDescription());
 
 
         return home;
