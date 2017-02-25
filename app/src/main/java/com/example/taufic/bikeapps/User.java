@@ -6,17 +6,20 @@ public class User {
     public String username;
     public String description;
     public String photoURL;
+    public String communityID;
 
     public User() {
         username = "";
         description = "";
         photoURL = "";
+        communityID = "null";
     }
 
-    public User(String username, String description, String photoURL) {
+    public User(String username, String description, String photoURL, String communityID) {
         this.username = username;
         this.description = description;
         this.photoURL = photoURL;
+        this.communityID = communityID;
     }
 
     public String getDescription() {
@@ -43,4 +46,11 @@ public class User {
         this.photoURL = photoURL;
     }
 
+    public String getCommunityID() {
+        return communityID;
+    }
+
+    public void setCommunityID(String communityID) {
+        this.communityID = communityID;
+    }
 }

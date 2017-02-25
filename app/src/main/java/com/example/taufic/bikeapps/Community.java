@@ -9,6 +9,7 @@ public class Community {
     String description;
     String location;
     String owner;
+    String id;
 
     public Community() {
         this.name ="";
@@ -54,5 +55,13 @@ public class Community {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

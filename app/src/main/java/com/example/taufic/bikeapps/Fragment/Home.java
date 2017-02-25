@@ -7,12 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.taufic.bikeapps.Adapter.ListEventAdapter;
 import com.example.taufic.bikeapps.Community;
 import com.example.taufic.bikeapps.R;
 import com.example.taufic.bikeapps.User;
-import com.example.taufic.bikeapps.UserDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,59 +23,85 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Home extends Fragment {
-
+public class Home extends Fragment  {
     private TextView username;
     private ImageView userImage;
     private TextView description;
+
     private User user;
+    private ArrayList<Community> listCommunity;
+    private ListView listevent;
+    private View home;
+
+    public DatabaseReference ref2;
 
     private boolean mDescribe;
+
+    //Filtered community if already join community
+    ArrayList<Community> getFilteredCommunity (ArrayList<Community> listOfCommunity, String communityID) {
+        ArrayList<Community> listCommunity = new ArrayList<Community>();
+
+        for (int i=0; i<listOfCommunity.size(); i++) {
+            if (communityID.compareTo(listOfCommunity.get(i).getId()) == 0) {
+                listCommunity.add(listOfCommunity.get(i));
+            }
+        }
+
+        return listCommunity;
+    }
+
     public Home() {
         // Required empty public constructor
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        home = inflater.inflate(R.layout.activity_home, container, false);
+
         //UID
         String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        UserDetails.UID = UID;
-        Log.d("uid user adalah : ", UID);
 
         //Database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("User").child(UID);
-        DatabaseReference ref2 = database.getReference("Community");
+        ref2 = database.getReference("Community");
 
         //List of Community
-        final ArrayList<Community> listCommunity = new ArrayList<Community>();
+        listCommunity = new ArrayList<Community>();
 
-        View home = inflater.inflate(R.layout.activity_home, container, false);
         ((TextView) home.findViewById(R.id.textView)).setText("Home");
+        username = (TextView) home.findViewById(R.id.username);
+        description = (TextView) home.findViewById(R.id.description);
 
-        ref.addValueEventListener(new ValueEventListener() {
+        listevent = (ListView) home.findViewById(R.id.list_event);
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                UserDetails.username = user.getUsername();
-                UserDetails.Community = "tes_1";
+                user = dataSnapshot.getValue(User.class);
                 Log.d("Biji KUDA", user.getUsername());
-            }
+                username.setText(user.getUsername());
+                description.setText(user.getDescription());
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                ref2.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                            listCommunity.add(childSnapshot.getValue(Community.class));
+                        }
 
-            }
-        });
+                        listCommunity = getFilteredCommunity(listCommunity, user.getCommunityID());
+                        ListEventAdapter listEventAdapter = new ListEventAdapter(getContext(), R.layout.listevent, listCommunity);
+                        listevent.setAdapter(listEventAdapter);
 
-        ref2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    listCommunity.add(childSnapshot.getValue(Community.class));
-                }
+                        Log.d("Biji KUDA", listCommunity.get(0).getDescription());
+                    }
 
-                Log.d("Biji KUDA", listCommunity.get(0).getDescription());
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
             }
 
             @Override
@@ -85,12 +112,10 @@ public class Home extends Fragment {
 
         mDescribe = false;
 
-        ((TextView) username.findViewById(R.id.username)).setText(user.getUsername());
-//        ((ImageView) userImage.findViewById(R.id.userImage));
-        ((TextView) description.findViewById(R.id.description)).setText(user.getDescription());
-
-
         return home;
+    }
+
+    public void joinCommunity(View view) {
     }
 
 }
