@@ -75,7 +75,7 @@ public class Bike extends Fragment implements android.location.LocationListener 
     @Override
     public void onLocationChanged(Location location) {
         if(bike!=null) {
-            TextView txt = (TextView) bike.findViewById(R.id.textView1);
+            TextView txt = (TextView) bike.findViewById(R.id.TextView1);
             if (location == null) {
                 txt.setText("-,- m/s");
             } else {
