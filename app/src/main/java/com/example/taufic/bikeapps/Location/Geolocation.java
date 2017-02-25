@@ -154,8 +154,7 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
 
             // Condition no address was found
             if (addresses == null || addresses.size() == 0) {
-                Log.e(TAG, "no address found");
-//                deliverResultToReceiver(Constants.FAILURE_RESULT, "no address found");
+
             } else {
                 System.out.println("udah masuk");
                 address = addresses.get(0).getSubAdminArea();
@@ -164,12 +163,6 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString("city", address);
                 editor.commit();
-
-                SharedPreferences sharedPref2 = getPreferences(Context.MODE_PRIVATE);
-                String UID = sharedPref2.getString("city", "null");
-                System.out.println(UID);
-//                TextView longitude = (TextView) findViewById(R.id.longitude_text);
-//                longitude.setText(address);
             }
         }
     }

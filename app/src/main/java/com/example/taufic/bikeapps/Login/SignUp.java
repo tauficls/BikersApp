@@ -52,7 +52,6 @@ public class SignUp extends AppCompatActivity {
         descriptionText = (EditText) findViewById(R.id.input_description);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-
     }
 
     public void signUp(View view) {
