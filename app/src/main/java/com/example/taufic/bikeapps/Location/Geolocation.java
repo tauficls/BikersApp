@@ -1,22 +1,23 @@
 package com.example.taufic.bikeapps.Location;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.ResultReceiver;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.taufic.bikeapps.Login.login;
 import com.example.taufic.bikeapps.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -36,34 +37,35 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
     private Location mLastLocation;
     private boolean mAddressRequested;
     private String mAddressOutput;
-    private AddressResultReceiver addressResultReceiver;
+//    private AddressResultReceiver addressResultReceiver;
     private TextView mLocationAddressTextView;
     ProgressBar progressBar;
     Button FetchAddressButton;
+    public String address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geolocation);
 
-        addressResultReceiver = new AddressResultReceiver(new Handler());
+//        addressResultReceiver = new AddressResultReceiver(new Handler());
 
-        mLocationAddressTextView = (TextView) findViewById(R.id.location_address_text);
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        FetchAddressButton = (Button) findViewById(R.id.fetch_address_button);
+//        mLocationAddressTextView = (TextView) findViewById(R.id.location_address_text);
+//        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+//        FetchAddressButton = (Button) findViewById(R.id.fetch_address_button);
+//
+//        mAddressRequested = false;
+//        mAddressOutput = "";
+//        updateValuesFromBundle(savedInstanceState);
 
-        mAddressRequested = false;
-        mAddressOutput = "";
-        updateValuesFromBundle(savedInstanceState);
-
-        if (mAddressRequested) {
-            progressBar.setVisibility(ProgressBar.VISIBLE);
-            FetchAddressButton.setEnabled(false);
-        } else {
-            progressBar.setVisibility(ProgressBar.GONE);
-            FetchAddressButton.setEnabled(true);
-        }
-
+//        if (mAddressRequested) {
+//            progressBar.setVisibility(ProgressBar.VISIBLE);
+//            FetchAddressButton.setEnabled(false);
+//        } else {
+//            progressBar.setVisibility(ProgressBar.GONE);
+//            FetchAddressButton.setEnabled(true);
+//        }
+        System.out.println("massuu kk");
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -71,7 +73,19 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
                     .addApi(LocationServices.API)
                     .build();
         }
+        new Handler().postDelayed(new Runnable() {
 
+            // Using handler with postDelayed called runnable run method
+
+            @Override
+            public void run() {
+                Intent i = new Intent(Geolocation.this, login.class);
+                startActivity(i);
+
+                // close this activity
+                finish();
+            }
+        }, 3*1000); // wait for 3 seconds
 
     }
     /*
@@ -90,15 +104,15 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
     }
     /*
     Start services when clicked
-     */
-    public void fetchAddressButtonHandler(View view) {
-
-        if (mGoogleApiClient.isConnected() && mLastLocation != null) {
-            startIntentService();
-        }
-        mAddressRequested = true;
-        updateUIWidgets();
-    }
+//     */
+//    public void fetchAddressButtonHandler(View view) {
+//
+//        if (mGoogleApiClient.isConnected() && mLastLocation != null) {
+//            startIntentService();
+//        }
+//        mAddressRequested = true;
+//        updateUIWidgets();
+//    }
 
     @Override
     public void onConnected(Bundle connectionHint) {
@@ -118,13 +132,13 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
         }
                 mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
-            if (!Geocoder.isPresent()) {
-                Toast.makeText(this, "no geocoder available", Toast.LENGTH_LONG).show();
-                return;
-            }
-            if (mAddressRequested) {
-                startIntentService();
-            }
+//            if (!Geocoder.isPresent()) {
+//                Toast.makeText(this, "no geocoder available", Toast.LENGTH_LONG).show();
+//                return;
+//            }
+//            if (mAddressRequested) {
+//                startIntentService();
+//            }
             List<Address> addresses = null;
             Geocoder geocoder = new Geocoder(this, Locale.getDefault());
             try {
@@ -140,12 +154,15 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
 
             // Condition no address was found
             if (addresses == null || addresses.size() == 0) {
-                Log.e(TAG, "no address found");
-//                deliverResultToReceiver(Constants.FAILURE_RESULT, "no address found");
+
             } else {
-                String address = addresses.get(0).getSubAdminArea();
-                TextView longitude = (TextView) findViewById(R.id.longitude_text);
-                longitude.setText(address);
+                System.out.println("udah masuk");
+                address = addresses.get(0).getSubAdminArea();
+                System.out.println(address);
+                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("city", address);
+                editor.commit();
             }
         }
     }
@@ -200,12 +217,12 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
     /*
     create intent services
      */
-    public void startIntentService() {
-        Intent intent = new Intent(this,FetchAddressIntentService.class);
-        intent.putExtra(Constants.RECEIVER, addressResultReceiver);
-        intent.putExtra(Constants.LOCATION_DATA_EXTRA, mLastLocation);
-        startService(intent);
-    }
+//    public void startIntentService() {
+//        Intent intent = new Intent(this,FetchAddressIntentService.class);
+//        intent.putExtra(Constants.RECEIVER, addressResultReceiver);
+//        intent.putExtra(Constants.LOCATION_DATA_EXTRA, mLastLocation);
+//        startService(intent);
+//    }
     /*
     toast a text.
      */
@@ -224,32 +241,32 @@ public class Geolocation extends AppCompatActivity implements ConnectionCallback
     /*
     Receiver address data
      */
-    class AddressResultReceiver extends ResultReceiver {
-        public AddressResultReceiver(Handler handler) {
-            super(handler);
-
-
-        }
-
-        /**
-         *  Receives data sent from FetchAddressIntentService and updates the UI in MainActivity.
-         */
-        @Override
-        protected void onReceiveResult(int resultCode, Bundle resultData) {
-            TextView longitude = (TextView) findViewById(R.id.longitude_text);
-            longitude.setText("text");
-            // Display the address string or an error message sent from the intent service.
-            mAddressOutput = resultData.getString(Constants.RESULT_DATA_KEY);
-            displayAddressOutput();
-
-            // Show a toast message if an address was found.
-            if (resultCode == Constants.SUCCESS_RESULT) {
-                showToast("address found");
-            }
-
-            // Reset. Enable the Fetch Address button and stop showing the progress bar.
-            mAddressRequested = false;
-            updateUIWidgets();
-        }
-    }
+//    class AddressResultReceiver extends ResultReceiver {
+//        public AddressResultReceiver(Handler handler) {
+//            super(handler);
+//
+//
+//        }
+//
+//        /**
+//         *  Receives data sent from FetchAddressIntentService and updates the UI in MainActivity.
+//         */
+//        @Override
+//        protected void onReceiveResult(int resultCode, Bundle resultData) {
+////            TextView longitude = (TextView) findViewById(R.id.longitude_text);
+////            longitude.setText("text");
+//            // Display the address string or an error message sent from the intent service.
+//            mAddressOutput = resultData.getString(Constants.RESULT_DATA_KEY);
+//            displayAddressOutput();
+//
+//            // Show a toast message if an address was found.
+//            if (resultCode == Constants.SUCCESS_RESULT) {
+//                showToast("address found");
+//            }
+//
+//            // Reset. Enable the Fetch Address button and stop showing the progress bar.
+//            mAddressRequested = false;
+//            updateUIWidgets();
+//        }
+//    }
 }

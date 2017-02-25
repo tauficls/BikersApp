@@ -81,13 +81,20 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <ListView
             android:id="@+id/list_event"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical">
         </ListView>
+        <ListView
+            android:id="@+id/list_community"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
 
+        </ListView>
     </LinearLayout>
 
     <TextView

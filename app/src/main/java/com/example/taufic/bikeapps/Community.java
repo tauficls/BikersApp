@@ -18,11 +18,12 @@ public class Community {
         this.owner = "";
     }
 
-    public Community(String name, String description, String location, String owner) {
+    public Community(String name, String description, String location, String owner, String id) {
         this.name = name;
         this.description = description;
         this.location = location;
         this.owner = owner;
+        this.id = id;
     }
 
     public String getName() {
