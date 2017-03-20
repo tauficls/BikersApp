@@ -66,27 +66,27 @@ public class Chat extends Fragment {
 ////                messagesContainer.setAdapter(chatAdapter);
 //            }
 //        });
-        //Database
+//    //Database
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference ref = database.getReference("Community_chat").child("tes_1");
 //
 //        ref.addChildEventListener(new ChildEventListener(){
 //            @Override
 //            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey){
-//                //TODO Change to LIST VIEW, getKey itu user, getValue itu message
+////                //TODO Change to LIST VIEW, getKey itu user, getValue itu message
 //                Log.d("DATA-CHAT", dataSnapshot.getKey()+ " " + dataSnapshot.getValue().toString());
-//                ChatMessage chatMessage = new ChatMessage();
-//                chatMessage.setId(2);
-//                chatMessage.setMessage(dataSnapshot.getValue().toString());
-//                chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
-//                chatMessage.setMe(true);
-//                chatHistory.add(chatMessage);
-//                chatAdapter = new ChatAdapter(getContext(), R.layout.listchat, chatHistory);
-//                messagesContainer.setAdapter(chatAdapter);
-//                for(int i=0; i<chatHistory.size(); i++) {
-//                    ChatMessage message = chatHistory.get(i);
-//                    displayMessage(message);
-//                }
+//                    ChatMessage chatMessage = new ChatMessage();
+//                    chatMessage.setId(2);
+//                    chatMessage.setMessage(dataSnapshot.getValue().toString());
+//                    chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
+//                    chatMessage.setMe(true);
+//                    chatHistory.add(chatMessage);
+//                    chatAdapter = new ChatAdapter(getContext(), R.layout.listchat, chatHistory);
+//                    messagesContainer.setAdapter(chatAdapter);
+//                    for(int i=0; i<chatHistory.size(); i++) {
+//                        ChatMessage message = chatHistory.get(i);
+//                        displayMessage(message);
+//                    }
 //            }
 //
 //            @Override
@@ -109,24 +109,24 @@ public class Chat extends Fragment {
 //            }
 //        });
 //        //TODO ADD SEND BUTTON AND MESSAGEAREA
-//        /*sendButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String messageText = messageArea.getText().toString();
-//
-//                if(!messageText.equals("")){
-//
-//
-//                    Map<String,Object> map= new HashMap<String,Object>();
-//                    map.put(UserDetails.username,messageText);
-//                    ref.updateChildren(map);
-//
-//                }
-//            }
-//        });*/
+        /*sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String messageText = messageArea.getText().toString();
 
-        return chat;
-    }
+                if(!messageText.equals("")){
+
+
+                    Map<String,Object> map= new HashMap<String,Object>();
+                    map.put(UserDetails.username,messageText);
+                    ref.updateChildren(map);
+
+                }
+            }
+        });*/
+
+    return chat;
+}
 //    public void displayMessage(ChatMessage message) {
 //        chatAdapter.add(message);
 //        chatAdapter.notifyDataSetChanged();
@@ -152,8 +152,8 @@ public class Chat extends Fragment {
 //        msg1.setDate(DateFormat.getDateTimeInstance().format(new Date()));
 //        chatHistory.add(msg1);
 //
-//        adapter = new ChatAdapter(view.get, new ArrayList<ChatMessage>());
-//        messagesContainer.setAdapter(adapter);
+////        adapter = new ChatAdapter(view.get, new ArrayList<ChatMessage>());
+////        messagesContainer.setAdapter(adapter);
 //
 //        for(int i=0; i<chatHistory.size(); i++) {
 //            ChatMessage message = chatHistory.get(i);

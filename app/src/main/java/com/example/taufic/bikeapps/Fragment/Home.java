@@ -20,6 +20,7 @@ import com.example.taufic.bikeapps.Community;
 import com.example.taufic.bikeapps.Event;
 import com.example.taufic.bikeapps.R;
 import com.example.taufic.bikeapps.User;
+import com.example.taufic.bikeapps.UserDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -96,6 +97,7 @@ public class Home extends Fragment  {
         listEvent = new ArrayList<Event>();
 
         ref3 = FirebaseDatabase.getInstance().getReference("Event");
+
         ImageView btn = (ImageView) home.findViewById(R.id.addcommunity);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +105,8 @@ public class Home extends Fragment  {
                 startActivity(new Intent(getActivity(), AddCommunity.class));
             }
         });
-        ((TextView) home.findViewById(R.id.textView)).setText("Home");
+       ((TextView) home.findViewById(R.id.textView)).setText("Home");
+
         username = (TextView) home.findViewById(R.id.username);
         description = (TextView) home.findViewById(R.id.description);
 
@@ -116,8 +119,8 @@ public class Home extends Fragment  {
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     listEvent.add(childSnapshot.getValue(Event.class));
                 }
-                ListCommunityAdapter listCommunityAdapter = new ListCommunityAdapter(getContext(), R.layout.listview_community, listEvent);
-                list_Community.setAdapter(listCommunityAdapter);
+                ListEventAdapter listEventAdapter = new ListEventAdapter(getContext(), R.layout.listevent, listEvent);
+                listevent.setAdapter(listEventAdapter);
             }
 
             @Override
@@ -144,8 +147,8 @@ public class Home extends Fragment  {
                                 listCommunity.add(dataSnapshot.getValue(Community.class));
 
                             //listCommunity = getFilteredCommunity(listCommunity, user.getCommunityID());
-                            ListEventAdapter listEventAdapter = new ListEventAdapter(getContext(), R.layout.listevent, listCommunity);
-                            listevent.setAdapter(listEventAdapter);
+                            ListCommunityAdapter listCommunityAdapter = new ListCommunityAdapter(getContext(), R.layout.listcommunity, listCommunity);
+                            list_Community.setAdapter(listCommunityAdapter);
                         }
 
                         @Override
@@ -161,7 +164,7 @@ public class Home extends Fragment  {
                     SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
                     final String city = sharedPref.getString("city", "null");
                     System.out.println(city);
-
+//                    ((TextView) home.findViewById(R.id.location)).setText(city);
                     ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -172,9 +175,8 @@ public class Home extends Fragment  {
                             //Filtered community in the same city as user
                             listCommunity = getFilteredCityCommunity(listCommunity, city);
                             //listCommunity = getFilteredCommunity(listCommunity, user.getCommunityID());
-                            ListEventAdapter listEventAdapter = new ListEventAdapter(getContext(), R.layout.listevent, listCommunity);
-                            listevent.setAdapter(listEventAdapter);
-
+                            ListCommunityAdapter listCommunityAdapter = new ListCommunityAdapter(getContext(), R.layout.listcommunity, listCommunity);
+                            list_Community.setAdapter(listCommunityAdapter);
                             Log.d("Biji KUDA", listCommunity.get(0).getDescription());
                         }
 
@@ -194,13 +196,5 @@ public class Home extends Fragment  {
         mDescribe = false;
 
         return home;
-    }
-
-    public void joinCommunity(View view) {
-
-    }
-
-    public void addCommuni(View view) {
-
     }
 }

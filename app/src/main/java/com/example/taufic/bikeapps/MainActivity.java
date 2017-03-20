@@ -1,5 +1,6 @@
 package com.example.taufic.bikeapps;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         TabAdapter.addFragments(compassFragment);
         viewPager.setAdapter(TabAdapter);
 
+        startService(new Intent(getApplicationContext(), MyService.class));
         /* Setting bottomNavigationView with ViewPager */
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {

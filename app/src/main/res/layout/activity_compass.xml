@@ -9,6 +9,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.taufic.bikeapps.Sensor.CompassActivity">
+    <ImageView
+        android:id="@+id/main_image_dial"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:contentDescription="@string/compass_dial"
+        android:src="@drawable/dial"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/main_image_hands"
@@ -19,12 +27,5 @@
         android:scaleType="fitXY"
         android:src="@drawable/hands" />
 
-    <ImageView
-        android:id="@+id/main_image_dial"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:contentDescription="@string/compass_dial"
-        android:src="@drawable/dial"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

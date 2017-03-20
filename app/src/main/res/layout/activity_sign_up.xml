@@ -75,7 +75,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <!-- signUp Button -->
-        <android.support.v7.widget.AppCompatButton
+        <Button
             android:id="@+id/btn_signUp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

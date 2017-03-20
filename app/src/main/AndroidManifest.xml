@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".Location.FetchAddressIntentService"
+            android:name=".MyService"
             android:exported="false" />
 
         <meta-data

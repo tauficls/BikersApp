@@ -14,6 +14,11 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         /** splashscreen setting **/
+//        int[] SplashList = {R.drawable.splash_1, R.drawable.splash_2, R.drawable.splash_3};
+//        int posOfImage = SplashList.length - 1;
+//        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+//        imageView.setBackgroundResource(SplashList[posOfImage]);
+
         new Handler().postDelayed(new Runnable() {
 
             // Using handler with postDelayed called runnable run method
@@ -22,11 +27,10 @@ public class SplashScreen extends Activity {
             public void run() {
                 Intent i = new Intent(SplashScreen.this, Geolocation.class);
                 startActivity(i);
-
                 // close this activity
                 finish();
             }
-        }, 1*1000); // wait for 5 seconds
+        }, 1*3000); // wait for 5 seconds
     }
 
     @Override

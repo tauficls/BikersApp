@@ -1,9 +1,13 @@
 package com.example.taufic.bikeapps.Fragment;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.taufic.bikeapps.R;
-import com.google.android.gms.location.LocationListener;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.DataPoint;
@@ -21,7 +24,7 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.util.Calendar;
 import java.util.Random;
 
-public class Bike extends Fragment implements android.location.LocationListener {
+public class Bike extends Fragment implements LocationListener /*implements android.location.LocationListener*/ {
 
 
     private boolean firstfix;
@@ -31,14 +34,16 @@ public class Bike extends Fragment implements android.location.LocationListener 
     private long int_seconds;
     private Calendar c;
     View bike;
+
     public Bike() {
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        int_seconds = System.currentTimeMillis()/1000;
+        int_seconds = System.currentTimeMillis() / 1000;
         Log.d("Initial Second ", String.valueOf(int_seconds));
 
         bike = inflater.inflate(R.layout.activity_bike, container, false);
@@ -55,13 +60,24 @@ public class Bike extends Fragment implements android.location.LocationListener 
         viewport.setScrollable(true);
 
         LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,0,(android.location.LocationListener) this);
+
+
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                getContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+//            return TODO;
+        }
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, (android.location.LocationListener) this);
 
         this.onLocationChanged(null);
-
-
-
-
 
         return bike;
     }
@@ -92,7 +108,7 @@ public class Bike extends Fragment implements android.location.LocationListener 
             }
         }
     }
-
+//
     @Override
     public void onStatusChanged(String s, int i, Bundle bundle) {
 

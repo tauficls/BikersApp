@@ -13,9 +13,9 @@
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="449dp"
         android:orientation="vertical"
-        android:padding="20dp">
+       >
 
         <EditText
             android:id="@+id/messageEdit"
@@ -66,13 +66,15 @@
             android:textSize="20dp" />
 
     </RelativeLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:textSize="50sp"
+            android:layout_weight="1"/>
 </LinearLayout>
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="50sp"/>
+
     <!--<include-->
         <!--layout="@layout/type_message_area"-->
         <!--android:layout_width="match_parent"-->

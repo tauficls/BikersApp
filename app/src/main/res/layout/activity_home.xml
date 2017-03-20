@@ -30,12 +30,11 @@
                 android:layout_centerInParent="true"
                 android:text="@string/app_name"
                 android:textAppearance="?android:textAppearanceLarge"/>
-            <ImageView
-                android:id="@+id/userImage"
-                android:layout_width="24sp"
-                android:layout_height="24sp"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/ic_launcher"/>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ListView>
+
             <TextView
                 android:id="@+id/description"
                 android:layout_width="wrap_content"
@@ -44,14 +43,14 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:ellipsize="none"
                 android:text="Description : >"/>
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:ellipsize="none"
-                android:text="location : >"/>
+            <!--<TextView-->
+                <!--android:id="@+id/location"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:textAppearance="?android:textAppearanceMedium"-->
+                <!--android:ellipsize="none"-->
+                <!--android:text="location : >"/>-->
         </LinearLayout>
     </LinearLayout>
 
@@ -68,15 +67,15 @@
             android:src="@drawable/ic_add_circle_white_24dp"/>
 
     </RelativeLayout>
-    <!-- search -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/search"
-        android:drawableLeft="@drawable/ic_search_white_24dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <!--&lt;!&ndash; search &ndash;&gt;-->
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/search"-->
+        <!--android:drawableLeft="@drawable/ic_search_white_24dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true" />-->
 
     <!-- List of event -->
     <LinearLayout
@@ -91,12 +90,18 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical">
         </ListView>
+    </LinearLayout>
+    <!-- List of community -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
         <ListView
             android:id="@+id/list_community"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical">
-
         </ListView>
     </LinearLayout>
 

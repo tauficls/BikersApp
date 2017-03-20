@@ -7,9 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    AppCompatButton _signinButton;
+    Button _signinButton;
 
     private static final String TAG = "SignInActivity";
 
@@ -40,7 +40,7 @@ public class login extends AppCompatActivity {
         if (UID == "null") {
             setContentView(R.layout.activity_login);
             mAuth = FirebaseAuth.getInstance();
-            _signinButton = (AppCompatButton) findViewById(R.id.btn_signIn);
+            _signinButton = (Button) findViewById(R.id.btn_signIn);
             emailText = (EditText) findViewById(R.id.input_email);
             passwordText = (EditText) findViewById(R.id.input_password);
         }

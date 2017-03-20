@@ -4,30 +4,35 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.taufic.bikeapps.Community;
 import com.example.taufic.bikeapps.CommunityMember;
-import com.example.taufic.bikeapps.Event;
 import com.example.taufic.bikeapps.R;
 import com.example.taufic.bikeapps.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
-import static com.example.taufic.bikeapps.R.id.description_community;
 
 /**
  * Created by taufic on 2/25/2017.
  */
 
-public class ListCommunityAdapter extends ArrayAdapter<Event> {
+public class ListCommunityAdapter extends ArrayAdapter<Community> {
 
-    ArrayList<Event> items;
+    ArrayList<Community> items;
     Context context;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -37,7 +42,7 @@ public class ListCommunityAdapter extends ArrayAdapter<Event> {
     public int id;
     public DatabaseReference ref2;
 
-    public ListCommunityAdapter(Context context, int resources, ArrayList<Event> items) {
+    public ListCommunityAdapter(Context context, int resources, ArrayList<Community> items) {
         super(context, resources, items);
         this.context = context;
         this.items = items;
@@ -54,22 +59,72 @@ public class ListCommunityAdapter extends ArrayAdapter<Event> {
         View view = convertView;
         if (view ==  null) {
             LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.listview_community, null);
+            view = layoutInflater.inflate(R.layout.listcommunity, null);
         }
-        Event i = items.get(position);
+        Community i = items.get(position);
         if (i != null) {
 
-            TextView communityID = (TextView) view.findViewById(R.id.communityID);
-            TextView name_community = (TextView) view.findViewById(description_community);
-            TextView location_community = (TextView) view.findViewById(R.id.location_community);
+            TextView name_community = (TextView) view.findViewById(R.id.name_community);
             TextView description_community = (TextView) view.findViewById(R.id.description_community);
-            TextView date_community = (TextView) view.findViewById(R.id.date_community);
+            TextView location_community = (TextView) view.findViewById(R.id.location_community);
+            TextView owner_community = (TextView) view.findViewById(R.id.owner_community);
+
 //            ListView listView = (ListView) view.findViewById(R.id.list_view);
 //            ImageView imageView_news = (ImageView) convertView.findViewById(R.id.imageview_news);
             name_community.setText(i.getName());
-            location_community.setText(i.getLocation());
             description_community.setText(i.getDescription());
-            date_community.setText(i.getDate());
+            location_community.setText(i.getLocation());
+            owner_community.setText(i.getOwner());
+
+            final Button button = (Button) view.findViewById(R.id.join_button);
+            button.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    ref2 = database.getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    ref2.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            user = dataSnapshot.getValue(User.class);
+                            Log.d("KUDA ", user.getCommunityID());
+                            if (user.getCommunityID().compareTo("null") == 0) {
+                                DatabaseReference ref = database.getReference("CommunityMember").child(items.get(position).getId());
+                                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        member = dataSnapshot.getValue(CommunityMember.class);
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+
+                                //Update user value
+                                user.setCommunityID(items.get(position).getId());
+                                ref2.setValue(user);
+
+                                //Update member value
+                                member.addUID(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                ref.setValue(member);
+                            }
+                            else {
+                                Toast.makeText(getContext(), "You can only join one community", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                    button.setEnabled(false);
+                }
+            });
+
+
         }
         return view;
 
